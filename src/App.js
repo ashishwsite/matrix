@@ -58,8 +58,8 @@ const Restart=()=>{
   return (
     <>
    
-    <div style={{display:'flex',justifyContent:'center'}}>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 100px)', gap: '10px' }}>
+    <div style={{display:'flex',justifyContent:'center', marginTop:'5vh'}}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 100px)', gap: '10px', border:'solid 3px '}}>
       {/* rendering of matrix element  */}
       {mat.map((row, rowIndex) =>// traversal in row
         row.map((ele, colIndex) => (// map method apply on array and return a component , traversal in col
