@@ -13,7 +13,10 @@ const Matrix = () => {
   const [order, setorder] = useState([]);
 
   const handleClick = (row, col) => {
-    const newmat=mat;
+    if (mat[row][col] === 'orange') {
+      return;
+    }
+    const newmat = mat.map(arr => arr.slice());
     
     newmat[row][col] = 'green';// at i,j index set elememnt value is greeen rest are remaine same 
     setmat(newmat);// now put new matrix in given matrix
@@ -25,11 +28,14 @@ const Matrix = () => {
     // })
     if (neworder.length === 9) {
         neworder.forEach(([r, c], index) => {
-            setTimeout(() => {
-              const updatemat = mat.map(arr=>arr.slice());
-              updatemat[r][c]='orange';
-              setmat(updatemat)
-            }, index * 400);
+          setTimeout(() => {
+            setmat(prevMat => {
+              const updatemat = prevMat.map(arr => arr.slice());
+              updatemat[r][c] = 'orange';
+              return updatemat;
+            });
+          }, index * 400);
+  
           })
   };
  
